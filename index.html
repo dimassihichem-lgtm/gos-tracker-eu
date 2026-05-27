@@ -107,7 +107,7 @@ label.lbl .req { color: #EF4444; margin-left: 2px; }
 .type-tag button { background: none; border: none; cursor: pointer; color: #EF4444; font-size: 14px; padding: 0; line-height: 1; }
 .danger-zone { background: #FFF7ED; border: 1px solid #FED7AA; border-radius: 8px; padding: 14px; }
 .danger-title { font-size: 12px; font-weight: 700; color: #9A3412; margin-bottom: 8px; }
-
+ 
 /* ---- Duplicate detection styles (added) ---- */
 .dup-badge {
   display: inline-block;
@@ -157,7 +157,7 @@ tr.dup-row:hover { background: #FEF3C7; }
 }
 .dup-count-badge.zero { background: #F1F5F9; color: #94A3B8; border-color: #E2E8F0; }
 /* --------------------------------------------- */
-
+ 
 @media (max-width: 640px) {
   .kpi-grid { grid-template-columns: 1fr 1fr; }
   .split-grid { grid-template-columns: 1fr; }
@@ -167,9 +167,9 @@ tr.dup-row:hover { background: #FEF3C7; }
 </style>
 </head>
 <body>
-
+ 
 <div id="toast" class="toast"></div>
-
+ 
 <header>
   <div class="hdr-inner">
     <div style="display:flex;align-items:center;gap:8px;">
@@ -184,7 +184,7 @@ tr.dup-row:hover { background: #FEF3C7; }
     <button class="add-btn" onclick="openForm()">+ Add client</button>
   </div>
 </header>
-
+ 
 <main>
   <div id="tab-dash">
     <h2>EU client pipeline</h2>
@@ -205,7 +205,7 @@ tr.dup-row:hover { background: #FEF3C7; }
       </div>
     </div>
   </div>
-
+ 
   <div id="tab-list" style="display:none;">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;flex-wrap:wrap;gap:8px;">
       <div>
@@ -218,7 +218,7 @@ tr.dup-row:hover { background: #FEF3C7; }
         <button class="btn btn-primary" onclick="openForm()">+ Add client</button>
       </div>
     </div>
-
+ 
     <div id="import-box" class="import-box" style="display:none;">
       <div class="import-title">Bulk import clients</div>
       <div class="import-steps">
@@ -237,7 +237,7 @@ tr.dup-row:hover { background: #FEF3C7; }
         <button class="btn" onclick="toggleImport()" style="margin-left:auto;">Close</button>
       </div>
     </div>
-
+ 
     <div class="toolbar">
       <input id="search" class="input" placeholder="Search name or owner..." oninput="renderList()" style="max-width:200px;">
       <select id="filter-co" class="select" onchange="renderList()" style="max-width:140px;"></select>
@@ -248,7 +248,7 @@ tr.dup-row:hover { background: #FEF3C7; }
         <span id="dup-count" class="dup-count-badge zero">0</span>
       </label>
     </div>
-
+ 
     <div class="card" style="padding:0;overflow-x:auto;">
       <table>
         <thead><tr>
@@ -258,11 +258,11 @@ tr.dup-row:hover { background: #FEF3C7; }
       </table>
     </div>
   </div>
-
+ 
   <div id="tab-settings" style="display:none;">
     <h2>Settings</h2>
     <div class="subtitle">Manage countries, client types, and data</div>
-
+ 
     <div class="settings-section">
       <div class="settings-title">Countries &amp; targets</div>
       <table style="margin-bottom:10px;">
@@ -278,7 +278,7 @@ tr.dup-row:hover { background: #FEF3C7; }
         <button class="btn btn-primary" onclick="addCountry()">Add</button>
       </div>
     </div>
-
+ 
     <div class="settings-section">
       <div class="settings-title">Client types</div>
       <div id="types-list"></div>
@@ -287,24 +287,24 @@ tr.dup-row:hover { background: #FEF3C7; }
         <button class="btn btn-primary" onclick="addType()">Add</button>
       </div>
     </div>
-
+ 
     <div class="danger-zone">
       <div class="danger-title">Danger zone</div>
       <button class="btn btn-danger" onclick="deleteAll()">Delete all clients</button>
     </div>
   </div>
 </main>
-
+ 
 <div id="form-modal" class="modal">
   <div class="modal-content" onclick="event.stopPropagation()">
     <div id="form-title" class="modal-title">Add client</div>
     <div class="modal-subtitle">Add a new client to include in the 2026 survey</div>
-
+ 
     <div class="form-group">
       <label class="lbl">Client name<span class="req">*</span></label>
       <input id="f-nm" class="input" placeholder="e.g. Amundi, DWS, Lombard Odier..." style="width:100%;">
     </div>
-
+ 
     <div class="form-grid">
       <div class="form-group">
         <label class="lbl">Type<span class="req">*</span></label>
@@ -315,7 +315,7 @@ tr.dup-row:hover { background: #FEF3C7; }
         <select id="f-co" class="select" style="width:100%;"></select>
       </div>
     </div>
-
+ 
     <div class="form-group">
       <label class="lbl">Outreach by<span class="req">*</span></label>
       <div class="radio-group">
@@ -329,12 +329,12 @@ tr.dup-row:hover { background: #FEF3C7; }
         </div>
       </div>
     </div>
-
+ 
     <div id="owner-block" class="form-group" style="display:none;">
       <label class="lbl">Account owner name<span class="req">*</span></label>
       <input id="f-ow" class="input" placeholder="Your name (Alpha colleague)" style="width:100%;">
     </div>
-
+ 
     <div id="contact-block" class="contact-block" style="display:none;">
       <div class="contact-block-title" id="contact-block-title">Client contact person</div>
       <div class="form-grid">
@@ -356,28 +356,27 @@ tr.dup-row:hover { background: #FEF3C7; }
         <input id="f-cr" class="input" placeholder="e.g. COO, Head of Operations" style="width:100%;">
       </div>
     </div>
-
+ 
     <div class="form-group">
       <label class="lbl">Status</label>
       <select id="f-st" class="select" style="width:100%;"></select>
     </div>
-
+ 
     <div class="form-group">
       <label class="lbl">Notes (optional)</label>
       <textarea id="f-nt" class="input" style="min-height:50px;font-family:inherit;"></textarea>
     </div>
-
+ 
     <div class="modal-actions">
       <button class="btn btn-primary" onclick="saveClient()" style="flex:1;padding:10px;">Save</button>
       <button class="btn" onclick="closeForm()" style="padding:10px 18px;">Cancel</button>
     </div>
   </div>
 </div>
-
+ 
 <script>
-const BIN_ID = "69e097e2856a6821893d139e";
-const MASTER_KEY = "$2a$10$YirqpDEezN9RhMQaqGcTceWGknsZCcDir9xvZYXyeRf3G8BPVQdF.";
-
+const FIREBASE_URL = "https://gos-tracker-eu-default-rtdb.europe-west1.firebasedatabase.app";
+ 
 const DEF_COUNTRIES = [
   { c: "FR", n: "France", t: 15 },
   { c: "DE", n: "Germany", t: 12 },
@@ -392,7 +391,7 @@ const DEF_COUNTRIES = [
 const DEF_TYPES = ["Asset Manager", "Asset Owner", "Editor", "Asset Servicer"];
 const STATUSES = ["Identified", "Contacted", "Confirmed", "Declined", "Completed"];
 const SC = { Identified: "#64748B", Contacted: "#0EA5E9", Confirmed: "#10B981", Declined: "#F43F5E", Completed: "#8B5CF6" };
-
+ 
 let state = {
   clients: [],
   countries: DEF_COUNTRIES,
@@ -402,14 +401,14 @@ let state = {
   outreach: 'owner',
   syncing: false
 };
-
+ 
 function toast(msg, isErr) {
   const t = document.getElementById('toast');
   t.textContent = msg;
   t.className = 'toast show ' + (isErr ? 'err' : 'ok');
   setTimeout(function(){ t.className = 'toast'; }, 2500);
 }
-
+ 
 // ---------- Duplicate detection (added) ----------
 // Normalize a client name: trim → lowercase → strip accents → collapse whitespace.
 function normalizeName(s) {
@@ -449,18 +448,36 @@ function getDuplicatePartners(client, dupGroups) {
   return group.filter(function(c){ return c.id !== client.id; });
 }
 // ------------------------------------------------
-
+ 
 async function loadData() {
   try {
-    const res = await fetch('https://api.jsonbin.io/v3/b/' + BIN_ID + '/latest', {
-      headers: { 'Content-Type': 'application/json', 'X-Master-Key': MASTER_KEY }
-    });
+    const res = await fetch(FIREBASE_URL + '/data.json');
     if (res.ok) {
       const data = await res.json();
-      const record = data.record || data;
-      if (record.clients) state.clients = record.clients;
-      if (record.countries && record.countries.length) state.countries = record.countries;
-      if (record.types && record.types.length) state.types = record.types;
+      if (data && data.clients && data.clients.length) {
+        state.clients = data.clients;
+        if (data.countries && data.countries.length) state.countries = data.countries;
+        if (data.types && data.types.length) state.types = data.types;
+        localStorage.setItem('gos-data', JSON.stringify(data));
+        updateSyncBadge('ok');
+        return true;
+      }
+      // Firebase is empty — check if localStorage has data to migrate
+      const local = localStorage.getItem('gos-data');
+      if (local) {
+        try {
+          const localData = JSON.parse(local);
+          if (localData.clients && localData.clients.length) {
+            state.clients = localData.clients;
+            if (localData.countries && localData.countries.length) state.countries = localData.countries;
+            if (localData.types && localData.types.length) state.types = localData.types;
+            // Auto-migrate to Firebase
+            await saveData();
+            toast('Data migrated to Firebase (' + state.clients.length + ' clients)');
+            return true;
+          }
+        } catch {}
+      }
       updateSyncBadge('ok');
       return true;
     } else {
@@ -481,15 +498,15 @@ async function loadData() {
   }
   return false;
 }
-
+ 
 async function saveData() {
   const data = { clients: state.clients, countries: state.countries, types: state.types };
   localStorage.setItem('gos-data', JSON.stringify(data));
   state.syncing = true;
   try {
-    const res = await fetch('https://api.jsonbin.io/v3/b/' + BIN_ID, {
+    const res = await fetch(FIREBASE_URL + '/data.json', {
       method: 'PUT',
-      headers: { 'Content-Type': 'application/json', 'X-Master-Key': MASTER_KEY },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     });
     if (res.ok) { updateSyncBadge('ok'); state.syncing = false; return; }
@@ -501,14 +518,14 @@ async function saveData() {
   state.syncing = false;
   toast('Cloud sync failed - saved locally', true);
 }
-
+ 
 function updateSyncBadge(status) {
   const b = document.getElementById('sync-badge');
   if (status === 'ok') { b.className = 'sync-badge sync-ok'; b.textContent = '\u25CF synced'; }
   else if (status === 'err') { b.className = 'sync-badge sync-err'; b.textContent = '\u25CB offline'; }
   else { b.className = 'sync-badge sync-local'; b.textContent = 'connecting...'; }
 }
-
+ 
 function switchTab(tab) {
   state.currentTab = tab;
   ['dash', 'list', 'settings'].forEach(function(t){
@@ -519,7 +536,7 @@ function switchTab(tab) {
   });
   renderAll();
 }
-
+ 
 function calcStats() {
   const bS = {}, bC = {};
   STATUSES.forEach(function(s){ bS[s] = 0; });
@@ -531,12 +548,12 @@ function calcStats() {
   const tgt = state.countries.reduce(function(a, r){ return a + r.t; }, 0);
   return { tot: state.clients.length, bS: bS, bC: bC, tgt: tgt };
 }
-
+ 
 function ring(p, color) {
   const r = 18, c = 2 * Math.PI * r;
   return '<svg width="44" height="44"><circle cx="22" cy="22" r="' + r + '" fill="none" stroke="#E2E8F0" stroke-width="3.5"/><circle cx="22" cy="22" r="' + r + '" fill="none" stroke="' + color + '" stroke-width="3.5" stroke-dasharray="' + c + '" stroke-dashoffset="' + (c*(1-Math.min(p,1))) + '" stroke-linecap="round" style="transition:stroke-dashoffset .5s ease;"/></svg>';
 }
-
+ 
 function renderKPIs() {
   const s = calcStats();
   const data = [
@@ -549,7 +566,7 @@ function renderKPIs() {
     return '<div class="card kpi"><div class="ring">' + ring(k.p, k.c) + '<span class="ring-val" style="color:' + k.c + ';">' + k.v + '</span></div><div><div class="kpi-label">' + k.l + '</div><div class="kpi-sub">' + k.s2 + '</div></div></div>';
   }).join('');
 }
-
+ 
 function renderCountryGrid() {
   const s = calcStats();
   document.getElementById('country-grid').innerHTML = state.countries.map(function(r){
@@ -558,14 +575,14 @@ function renderCountryGrid() {
     return '<div class="country-tile" style="border-color:' + (n>0?cl+'40':'rgba(255,255,255,.06)') + ';"><div class="country-row1"><span class="country-code">' + r.c + '</span><span class="country-count" style="color:' + cl + ';">' + n + '</span></div><div class="country-name">' + r.n + '</div><div class="country-bar"><div class="country-bar-fill" style="width:' + (Math.min(p,1)*100) + '%;background:' + cl + ';"></div></div><div class="country-target">' + n + ' / ' + r.t + '</div></div>';
   }).join('');
 }
-
+ 
 function renderFunnel() {
   const s = calcStats();
   document.getElementById('funnel').innerHTML = STATUSES.map(function(st){
     return '<div class="funnel-row"><span class="funnel-dot" style="background:' + SC[st] + ';"></span><span class="funnel-label">' + st + '</span><span class="funnel-val" style="color:' + SC[st] + ';">' + (s.bS[st]||0) + '</span></div>';
   }).join('');
 }
-
+ 
 function renderRecent() {
   const recent = state.clients.slice().sort(function(a, b){ return b.up - a.up; }).slice(0, 5);
   const el = document.getElementById('recent');
@@ -575,17 +592,17 @@ function renderRecent() {
     return '<div class="recent-row"><div class="recent-info"><div class="recent-name">' + escapeHtml(c.nm) + '</div><div class="recent-meta">' + escapeHtml(contact) + ' - ' + c.co + '</div></div><span class="status-tag" style="background:' + SC[c.st] + '15;color:' + SC[c.st] + ';">' + c.st + '</span></div>';
   }).join('');
 }
-
+ 
 function renderList() {
   const dupGroups = getDuplicateGroups();
   const q = document.getElementById('search').value.toLowerCase();
   const fCo = document.getElementById('filter-co').value;
   const fSt = document.getElementById('filter-st').value;
   const fDup = document.getElementById('filter-dup').checked;
-
+ 
   // Visual toggle on the filter label when active
   document.getElementById('dup-filter-label').classList.toggle('active', fDup);
-
+ 
   const filtered = state.clients.filter(function(c){
     if (fCo !== 'All' && c.co !== fCo) return false;
     if (fSt !== 'All' && c.st !== fSt) return false;
@@ -593,7 +610,7 @@ function renderList() {
     if (q && c.nm.toLowerCase().indexOf(q) === -1 && (c.ow||'').toLowerCase().indexOf(q) === -1) return false;
     return true;
   });
-
+ 
   // When the duplicates filter is on, sort by key first so duplicate pairs sit next to each other
   if (fDup) {
     filtered.sort(function(a, b){
@@ -603,9 +620,9 @@ function renderList() {
   } else {
     filtered.sort(function(a, b){ return a.nm.localeCompare(b.nm); });
   }
-
+ 
   document.getElementById('list-count').textContent = 'Clients (' + filtered.length + ')';
-
+ 
   const tbody = document.getElementById('client-rows');
   if (filtered.length === 0) {
     const emptyMsg = state.clients.length === 0
@@ -619,7 +636,7 @@ function renderList() {
     const outreach = c.ow ? '<span style="color:#0284C7;font-weight:600;">' + escapeHtml(c.ow) + '</span>' : '<span style="color:#D97706;font-weight:600;">GOS team</span>';
     const fullName = [c.cn, c.cln].filter(Boolean).join(' ');
     const contactDisplay = fullName ? escapeHtml(fullName) + (c.cr ? ' - '+escapeHtml(c.cr) : '') + (c.ce ? '<br><span style="color:#94A3B8;font-size:10px;">'+escapeHtml(c.ce)+'</span>' : '') : '<i style="color:#CBD5E1;">-</i>';
-
+ 
     // Duplicate flag: badge next to the name + row highlight
     let dupBadge = '';
     let rowClass = '';
@@ -632,11 +649,11 @@ function renderList() {
       const tooltip = 'Duplicate: also in list via ' + partnerLabels.join(' + ') + '. Reach out to arbitrate who contacts the client.';
       dupBadge = ' <span class="dup-badge" title="' + escapeHtml(tooltip) + '">DUP</span>';
     }
-
+ 
     return '<tr' + rowClass + '><td style="font-weight:600;">' + escapeHtml(c.nm) + dupBadge + '</td><td style="color:#64748B;">' + escapeHtml(c.tp) + '</td><td style="font-weight:600;">' + c.co + '</td><td>' + outreach + '</td><td style="font-size:11px;">' + contactDisplay + '</td><td><select class="status-select" style="background:' + SC[c.st] + '15;color:' + SC[c.st] + ';" onchange="updateStatus(\'' + c.id + '\', this.value)">' + stOpts + '</select></td><td><button class="btn" style="padding:3px 8px;font-size:10px;margin-right:2px;" onclick="openForm(\'' + c.id + '\')">Edit</button><button class="btn btn-danger" style="padding:3px 8px;font-size:10px;" onclick="deleteClient(\'' + c.id + '\')">x</button></td></tr>';
   }).join('');
 }
-
+ 
 function renderFilters() {
   const fCo = document.getElementById('filter-co');
   const curCo = fCo.value || 'All';
@@ -644,7 +661,7 @@ function renderFilters() {
   const fSt = document.getElementById('filter-st');
   const curSt = fSt.value || 'All';
   fSt.innerHTML = '<option value="All">All statuses</option>' + STATUSES.map(function(s){ return '<option value="' + s + '" ' + (s===curSt?'selected':'') + '>' + s + '</option>'; }).join('');
-
+ 
   // Update the duplicate count badge
   const dupGroups = getDuplicateGroups();
   let totalDupes = 0;
@@ -653,17 +670,17 @@ function renderFilters() {
   dupCountEl.textContent = totalDupes;
   dupCountEl.classList.toggle('zero', totalDupes === 0);
 }
-
+ 
 function renderSettings() {
   document.getElementById('countries-table').innerHTML = state.countries.map(function(r){
     return '<tr><td style="font-weight:700;">' + r.c + '</td><td>' + escapeHtml(r.n) + '</td><td><input type="number" value="' + r.t + '" onchange="updateTarget(\'' + r.c + '\', this.value)" style="width:60px;padding:4px 6px;border:1px solid #D1D5DB;border-radius:4px;font-size:11px;font-family:inherit;text-align:center;"></td><td><button class="btn btn-danger" style="padding:3px 8px;font-size:10px;" onclick="removeCountry(\'' + r.c + '\')">x</button></td></tr>';
   }).join('');
-
+ 
   document.getElementById('types-list').innerHTML = state.types.map(function(t){
     return '<span class="type-tag">' + escapeHtml(t) + '<button onclick="removeType(\'' + escapeHtml(t) + '\')">x</button></span>';
   }).join('');
 }
-
+ 
 function renderAll() {
   renderFilters();
   if (state.currentTab === 'dash') {
@@ -677,11 +694,11 @@ function renderAll() {
     renderSettings();
   }
 }
-
+ 
 function escapeHtml(s) {
   return String(s || '').replace(/[&<>"']/g, function(c){ return ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[c]; });
 }
-
+ 
 function selectOutreach(type) {
   state.outreach = type;
   document.getElementById('radio-owner').classList.toggle('selected', type === 'owner');
@@ -695,7 +712,7 @@ function selectOutreach(type) {
   document.getElementById('req-ln').style.display = isTeam ? 'inline' : 'none';
   document.getElementById('req-em').style.display = isTeam ? 'inline' : 'none';
 }
-
+ 
 function openForm(id) {
   state.editId = id || null;
   document.getElementById('form-title').textContent = id ? 'Edit client' : 'Add new client';
@@ -705,7 +722,7 @@ function openForm(id) {
   coSel.innerHTML = state.countries.map(function(r){ return '<option value="' + r.c + '">' + escapeHtml(r.n) + ' (' + r.c + ')</option>'; }).join('');
   const stSel = document.getElementById('f-st');
   stSel.innerHTML = STATUSES.map(function(s){ return '<option>' + s + '</option>'; }).join('');
-
+ 
   if (id) {
     const c = state.clients.find(function(x){ return x.id === id; });
     if (c) {
@@ -733,25 +750,25 @@ function openForm(id) {
   }
   document.getElementById('form-modal').classList.add('show');
 }
-
+ 
 function closeForm() {
   document.getElementById('form-modal').classList.remove('show');
   state.editId = null;
 }
-
+ 
 async function saveClient() {
   const nm = document.getElementById('f-nm').value.trim();
   if (!nm) { toast('Client name required', true); return; }
-
+ 
   const isTeam = state.outreach === 'team';
   const ow = isTeam ? '' : document.getElementById('f-ow').value.trim();
   const cn = document.getElementById('f-cn').value.trim();
   const cln = document.getElementById('f-cln').value.trim();
   const ce = document.getElementById('f-ce').value.trim();
-
+ 
   if (!isTeam && !ow) { toast('Account owner name required', true); return; }
   if (isTeam && (!cn || !cln || !ce)) { toast('Contact first name, last name and email required for GOS team outreach', true); return; }
-
+ 
   const data = {
     nm: nm, tp: document.getElementById('f-tp').value, co: document.getElementById('f-co').value,
     ow: ow, cn: cn, cln: cln, ce: ce,
@@ -760,13 +777,13 @@ async function saveClient() {
     nt: document.getElementById('f-nt').value.trim(),
     up: Date.now()
   };
-
+ 
   // Duplicate check (non-blocking) — warn but still save
   const provisional = Object.assign({ id: state.editId || 'new' }, data);
   const dupCandidates = state.clients.filter(function(c){
     return c.id !== state.editId && clientKey(c) === clientKey(provisional);
   });
-
+ 
   if (state.editId) {
     state.clients = state.clients.map(function(c){ return c.id === state.editId ? Object.assign({}, c, data) : c; });
     toast(dupCandidates.length ? 'Client updated (flagged as duplicate)' : 'Client updated');
@@ -783,7 +800,7 @@ async function saveClient() {
   closeForm();
   renderAll();
 }
-
+ 
 async function deleteClient(id) {
   if (!confirm('Delete this client?')) return;
   state.clients = state.clients.filter(function(c){ return c.id !== id; });
@@ -791,18 +808,18 @@ async function deleteClient(id) {
   renderAll();
   toast('Client removed');
 }
-
+ 
 async function updateStatus(id, st) {
   state.clients = state.clients.map(function(c){ return c.id === id ? Object.assign({}, c, { st: st, up: Date.now() }) : c; });
   await saveData();
   if (state.currentTab === 'dash') renderAll();
 }
-
+ 
 function toggleImport() {
   const b = document.getElementById('import-box');
   b.style.display = b.style.display === 'none' ? 'block' : 'none';
 }
-
+ 
 function loadTemplate() {
   const tmpl = 'Client Name,Type,Country,Outreach By,Contact First Name,Contact Last Name,Contact Email,Contact Role,Status,Notes\n' +
     'Amundi,Asset Manager,FR,Account Owner,Marie,Martin,marie.martin@amundi.com,Head of Operations,Identified,Top priority\n' +
@@ -811,13 +828,13 @@ function loadTemplate() {
   document.getElementById('csv-text').value = tmpl;
   toast('Template loaded - edit before importing');
 }
-
+ 
 async function doImport() {
   const text = document.getElementById('csv-text').value.trim();
   if (!text) return;
   const lines = text.split(/\r?\n/).filter(function(l){ return l.trim(); });
   if (lines.length < 2) { toast('Need header + data rows', true); return; }
-
+ 
   function parseLine(line) {
     const vals = [];
     let cur = '', inQ = false;
@@ -830,7 +847,7 @@ async function doImport() {
     vals.push(cur.trim());
     return vals.map(function(v){ return v.replace(/^"|"$/g, ''); });
   }
-
+ 
   const hdr = parseLine(lines[0]);
   let count = 0;
   const items = [];
@@ -840,24 +857,24 @@ async function doImport() {
     hdr.forEach(function(h, j){ obj[h] = vals[j] || ''; });
     const name = obj['Client Name'] || obj['Name'] || '';
     if (!name) continue;
-
+ 
     let country = (obj['Country'] || state.countries[0].c || '').trim().toUpperCase();
     if (country.length > 2) {
       const f = state.countries.find(function(r){ return r.n.toLowerCase() === country.toLowerCase(); });
       country = f ? f.c : state.countries[0].c || 'FR';
     }
     if (!state.countries.find(function(r){ return r.c === country; })) country = state.countries[0].c || 'FR';
-
+ 
     let type = obj['Type'] || state.types[0];
     if (state.types.indexOf(type) === -1) type = state.types[0];
-
+ 
     let status = obj['Status'] || 'Identified';
     if (STATUSES.indexOf(status) === -1) status = 'Identified';
-
+ 
     const outreachBy = (obj['Outreach By'] || '').toLowerCase();
     const isTeam = outreachBy === 'gos team' || outreachBy === 'team';
     const ownerName = obj['Account Owner'] || '';
-
+ 
     items.push({
       nm: name, tp: type, co: country,
       ow: isTeam ? '' : (ownerName || 'Unknown'),
@@ -874,11 +891,11 @@ async function doImport() {
   }
   state.clients = state.clients.concat(items);
   await saveData();
-
+ 
   // Count how many of the imported items are now duplicates (non-blocking info)
   const dupGroups = getDuplicateGroups();
   const importedDupes = items.filter(function(it){ return dupGroups.has(clientKey(it)); }).length;
-
+ 
   document.getElementById('csv-text').value = '';
   toggleImport();
   renderAll();
@@ -888,7 +905,7 @@ async function doImport() {
     toast(count + ' client(s) imported');
   }
 }
-
+ 
 function exportCSV() {
   const h = 'Client Name,Type,Country,Outreach By,Account Owner,Contact First Name,Contact Last Name,Contact Email,Contact Role,Status,Notes\n';
   const rows = state.clients.map(function(c){
@@ -907,7 +924,7 @@ function exportCSV() {
   URL.revokeObjectURL(url);
   toast('Exported');
 }
-
+ 
 async function addCountry() {
   const code = document.getElementById('new-co-code').value.trim().toUpperCase();
   const name = document.getElementById('new-co-name').value.trim();
@@ -922,7 +939,7 @@ async function addCountry() {
   renderAll();
   toast('Country added');
 }
-
+ 
 async function removeCountry(code) {
   if (!confirm('Remove ' + code + '?')) return;
   state.countries = state.countries.filter(function(c){ return c.c !== code; });
@@ -930,12 +947,12 @@ async function removeCountry(code) {
   renderAll();
   toast('Removed');
 }
-
+ 
 async function updateTarget(code, val) {
   state.countries = state.countries.map(function(c){ return c.c === code ? Object.assign({}, c, { t: parseInt(val) || 0 }) : c; });
   await saveData();
 }
-
+ 
 async function addType() {
   const t = document.getElementById('new-type').value.trim();
   if (!t || state.types.indexOf(t) !== -1) return;
@@ -945,7 +962,7 @@ async function addType() {
   renderAll();
   toast('Type added');
 }
-
+ 
 async function removeType(t) {
   if (!confirm('Remove type "' + t + '"?')) return;
   state.types = state.types.filter(function(x){ return x !== t; });
@@ -953,7 +970,7 @@ async function removeType(t) {
   renderAll();
   toast('Removed');
 }
-
+ 
 async function deleteAll() {
   if (!confirm('Delete ALL clients? This cannot be undone.')) return;
   if (!confirm('Really sure?')) return;
@@ -962,38 +979,38 @@ async function deleteAll() {
   renderAll();
   toast('All clients deleted');
 }
-
+ 
 document.getElementById('form-modal').addEventListener('click', function(e){
   if (e.target.id === 'form-modal') closeForm();
 });
-
+ 
 setInterval(async function(){
   if (!state.syncing && document.visibilityState === 'visible') {
     try {
-      const res = await fetch('https://api.jsonbin.io/v3/b/' + BIN_ID + '/latest', {
-        headers: { 'Content-Type': 'application/json', 'X-Master-Key': MASTER_KEY }
-      });
+      const res = await fetch(FIREBASE_URL + '/data.json');
       if (res.ok) {
         const data = await res.json();
-        const record = data.record || data;
-        const newCount = record.clients ? record.clients.length : 0;
-        if (newCount !== state.clients.length) {
-          if (record.clients) state.clients = record.clients;
-          if (record.countries && record.countries.length) state.countries = record.countries;
-          if (record.types && record.types.length) state.types = record.types;
-          renderAll();
+        if (data && data.clients) {
+          const newCount = data.clients.length;
+          if (newCount !== state.clients.length) {
+            state.clients = data.clients;
+            if (data.countries && data.countries.length) state.countries = data.countries;
+            if (data.types && data.types.length) state.types = data.types;
+            localStorage.setItem('gos-data', JSON.stringify(data));
+            renderAll();
+          }
         }
         updateSyncBadge('ok');
       }
     } catch {}
   }
-}, 30000);
-
+}, 15000);
+ 
 (async function(){
   await loadData();
   renderAll();
 })();
 </script>
-
+ 
 </body>
 </html>
